@@ -1,0 +1,189 @@
+/* ============================================================
+   Bloom Fest: Theming Bootstrap with CSS Variables
+
+   Complete the 10 tasks in Brightspace. Work in this file only.
+
+   The selectors are written for you. Your job is to fill in
+   each empty block. 
+   
+   For the Bootstrap tasks, you'll need to
+   find the right --bs- variable yourself, in DevTools or in
+   the Bootstrap docs. This requires you to investigate a bit.
+   ============================================================ */
+
+
+:root {
+
+  /* TASK 1: Your custom variables
+     Type them here from the Design Tokens table in the Brightspace:
+     colours first, then the -rgb versions, then fonts and sizes. */
+--bf-black:#0a0a0a;
+--bf-charcoal: #111111;
+--bf-white:#ffffff;
+--bf-pink: #ff3ea5;
+--bf-pink-dark: #e6288f;
+--bf-lime: #aaff00;
+--bf-sky: #38d9f5;
+--bf-orange: #ff7c2a;
+--bf-orange-dark: #e8691a;
+--bf-purple: #7c3aed;
+
+--bf-pink-rgb: 255, 62, 165;
+--bf-lime-rgb: 170, 255, 0;
+--bf-sky-rgb:56, 217, 245;
+
+--bf-font-display: 'Bebas Neue', Impact, sans-serif;
+--bf-font-body: 'Plus Jakarta Sans', sans-serif;
+--bf-fs-hero: clamp(4rem, 10vw, 8rem);
+--bf-space-section: 5rem;
+--bf-radius: 4px;
+
+
+
+  /* TASK 2: Bootstrap overrides
+     Find Bootstrap's variables for the page background, text
+     colour, body font, corner radius, primary colour, info
+     colour and link colour. Point each one at your variables.
+     Remember: some colours also need their -rgb twin. */
+
+  --bs-body-bg: var(--bf-black);
+  --bs-body-color: var(--bf-white);
+  --bs-body-font-family: var(--bf-font-body);
+  --bs-border-radius: var(--bf-radius);
+  --bs-primary: var(--bf-pink);
+  --bs-primary-rgb: var(--bf-pink-rgb);
+  --bs-info: var(--bf-sky);
+  --bs-info-rgb: var(--bf-sky-rgb);
+  --bs-link-color: var(--bf-lime);
+  --bs-link-color-rgb: var(--bf-lime-rgb);
+}
+
+
+/* TASK 3: Fonts and sizes in your --bf variables
+   Replace ______________ with accessing the variable set in :root. 
+   Headings use the display font. The hero title uses the hero
+   font size. Sections get your section spacing above and below. */
+
+h1, h2, h3,
+.logo,
+.footer-logo,
+.form-heading,
+.blockquote {
+   font-family: var(--bf-font-display);
+}
+
+.hero-title {
+   font-size: var(--bf-fs-hero);
+}
+
+.section {
+   padding-top: var(--bf-space-section);
+   padding-bottom: var(--bf-space-section);
+}
+
+
+/* TASK 4: Brand colours using your --bf variables
+   Text colours: lime, pink and orange. */
+
+.hero-dates,
+.section-label {
+   color: var(--bf-lime);
+}
+
+.festival-quote::before {
+   color: var(--bf-pink);
+}
+
+.info-text p:first-of-type::first-letter {
+   color: var(--bf-orange);
+}
+
+
+/* TASK 5: Section backgrounds using your --bf variables.
+   Site header uses black, schedule section uses charcoal 
+   and quote section uses purple. */
+
+.site-header {
+   background-color: var(--bf-black);
+}
+
+.schedule-section {
+   background-color: var(--bf-charcoal);
+}
+
+.quote-section {
+   background-color: var(--bf-purple);
+}
+
+
+/* TASK 6: The navbar
+   Find the navbar's --bs- variables for the hover colour and
+   the active (current page) colour. Change in the selector by 
+   overriding the correct --bs- variables. */
+
+.navbar {
+   --bs-navbar-hover-color: rgba(var(--bs-white), 0.8);
+   --bs-navbar-active-color: var(--bf-lime);
+}
+
+
+/* TASK 7: The pink button
+   Find the button's --bs- variables for the background, border,
+   hover and active states. Hint: You will be overriding 6 
+   --bs- variables for this button. */
+
+.btn-primary {
+   background-color: var(--bf-pink);
+   border-color: var(--bf-pink);
+   --bs-btn-hover-border-color: var(--bf-pink-dark);
+   --bs-background-hover-color: var(--bs-pink-dark);
+   --bs-btn-hover-bg: var(--bf-pink-dark);
+   --bs-border-active-color: var(--bf-pink-dark);
+}
+
+
+/* TASK 8: The orange button
+   Same variables as Task 7, plus the text colour variables. */
+
+.btn-warning {
+   background-color: var(--bf-orange);
+   border-color: var(--bf-orange);
+   --bs-btn-hover-border-color: var(--bf-orange-dark);
+   --bs-background-hover-color: var(--bs-orange-dark);
+   --bs-btn-hover-bg: var(--bf-orange-dark);
+   --bs-border-active-color: var(--bf-orange-dark);
+   
+   color: var(--bf-white);
+   --bs-text-hover-color: var(--bs-white);
+   --bs-text-active-color: var(--bf-orange-dark);
+}
+
+
+/* TASK 9: The artist cards
+   Find the card's --bs- variable for its background colour.
+   Set it in all three rules. You will be targetting the --bs- 
+   variable as the property and your --bf variable as the value. */
+
+.artist-card {
+background-color: var(--bf-black)
+}
+
+.artist-card:hover {
+background-color: var(--bf-charcoal)
+}
+
+.artist-card:has(.headliner-badge) {
+background-color: var(--bf-pink)
+
+}
+
+
+/* TASK 10: The form focus glow
+   Bootstrap has NO variable for this. Use DevTools to see which
+   two properties Bootstrap sets on .form-control:focus, then
+   set them here using your lime variables. */
+
+.form-control:focus {
+   border-color: var(--bf-lime);
+   box-shadow: 0 0 0 0.25rem rgba(var(--bf-lime-rgb), 0.25);
+}
